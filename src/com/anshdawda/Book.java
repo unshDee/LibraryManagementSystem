@@ -8,47 +8,81 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author Ansh Dawda
+ * @author bhavya-gohil
  */
 public class Book {
-
+    private static final AtomicInteger count = new AtomicInteger(0); 
+    private int bid;
+    private boolean isAvailable;
     private String title;
     private String author;
     private String publisher;
-    private String isbn;
-    private float price;
-    private boolean isAvailable;
+    private int price;
     private String borrowedBy;
     private File cover;
+    private boolean isIssued;
+    private boolean isReturned;
+    
+    private static Book book;
+    
+    private Book(){
+    
+    }
+    
+    public static Book getInstance() {
+        if (book == null) {
+            book = new Book();
+        }
+        return book;
+    }
 
-    public Book(String title, String author, String publisher, String isbn, float price) {
+    public Book(String title, String author, String publisher, int price) {
         // TODO add default image part instead of null
         this(
                 title,
                 author,
                 publisher,
-                isbn,
                 price,
-                new File("src/com/anshdawda/resources/defaultCover.jpg")
+                new File("src/lms/images/defaultCover.jpg")
+          
         );
 //        System.out.println(cover.getAbsolutePath());
     }
 
-    public Book(String title, String author, String publisher, String isbn, float price, File cover) {
+    public Book(String title, String author, String publisher, int price, File cover) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
-        this.isbn = isbn;
         this.price = price;
         this.cover = cover;
+        this.bid = count.incrementAndGet();  
         this.isAvailable = true;
+        this.isIssued = false;
+        this.isReturned = false;
     }
-
+    
+    public void setBook(String title, String author, String publisher, int price, File cover){
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.price = price;
+        this.cover = cover;
+    }
+    
+    public void setBook(String title, String author, String publisher, int price){
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.price = price;
+        this.cover = new File("src/lms/images/defaultCover.jpg");
+    }
+    
     public String getTitle() {
         return title;
     }
@@ -61,18 +95,10 @@ public class Book {
         return publisher;
     }
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
     
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
     public File getCover() {
         return cover;
     }
@@ -110,23 +136,38 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
     
-    public void setIsAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
-
     public void setCover(File cover) {
         this.cover = cover;
     }
     
     public void setBorrower(String borrowedBy) {
         this.borrowedBy = borrowedBy;
+    }
+    
+    public boolean getAvailability(){
+        return this.isAvailable;
+    }
+    
+    public void setIssued(){
+        this.isIssued = true;
+        this.isReturned = false;
+    } 
+    
+    public void setReturned(){
+        this.isReturned = true;
+        this.isIssued = false;
+    }
+    
+    public void setAvailability(){
+        if(this.isIssued && this.isAvailable){
+            this.isAvailable = false;
+        }else if(this.isReturned && !this.isAvailable){
+            this.isAvailable = true;
+        }
     }
 }
