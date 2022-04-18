@@ -5,7 +5,6 @@
 package com.anshdawda;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -19,11 +18,11 @@ public class LibraryConnection {
 
     private LibraryConnection() {
         books = new ArrayList<>();
-        books.add(new Book("The Hunger Games", "Suzanne Collins", "Scholastic Press", "9780439023481", 34.99f));
-        books.add(new Book("Harry Potter and the Order of the Phoenix", "J. K. Rowling", "Bloomsbury", "9780439358064", 48.00f));
-        books.add(new Book("To Kill a Mockingbird", "Harper Lee", "J. B. Lippincott & Co.", "9780810385665", 1.37f));
-        books.add(new Book("Pride and Prejudice", "Jane Austen", "T. Egerton, Whitehall", "9781853260001", 23.99f));
-        books.add(new Book("The Book Thief", "Mark Zusak", "2005 Picador", "9780375842207", 6.99f));
+        books.add(new Book("The Hunger Games", "Suzanne Collins", "Scholastic Press", 34));
+        books.add(new Book("Harry Potter and the Order of the Phoenix", "J. K. Rowling", "Bloomsbury", 48));
+        books.add(new Book("To Kill a Mockingbird", "Harper Lee", "J. B. Lippincott & Co.", 18));
+        books.add(new Book("Pride and Prejudice", "Jane Austen", "T. Egerton, Whitehall", 24));
+        books.add(new Book("The Book Thief", "Mark Zusak", "2005 Picador", 7));
     }
     
     public static LibraryConnection getInstance() {

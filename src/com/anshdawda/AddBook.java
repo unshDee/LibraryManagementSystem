@@ -32,7 +32,7 @@ public class AddBook extends javax.swing.JInternalFrame {
         titleTextField.setText(this.book.getTitle());
         authorTextField.setText(this.book.getAuthor());
         publisherTextField.setText(this.book.getPublisher());
-        isbnTextField.setText(this.book.getIsbn());
+//        isbnTextField.setText(this.book.getIsbn());
         priceSpinner.setValue(this.book.getPrice());
         this.image = this.book.getCover();
         fileChooserButton.setText("Choose Image (" + image.getName() + ")");
@@ -49,8 +49,6 @@ public class AddBook extends javax.swing.JInternalFrame {
 
         titleLabel = new javax.swing.JLabel();
         titleTextField = new javax.swing.JTextField();
-        isbnLabel = new javax.swing.JLabel();
-        isbnTextField = new javax.swing.JTextField();
         authorLabel = new javax.swing.JLabel();
         authorTextField = new javax.swing.JTextField();
         publisherLabel = new javax.swing.JLabel();
@@ -66,8 +64,6 @@ public class AddBook extends javax.swing.JInternalFrame {
         setTitle("Add Book");
 
         titleLabel.setText("Title:");
-
-        isbnLabel.setText("ISBN:");
 
         authorLabel.setText("Author:");
 
@@ -105,40 +101,38 @@ public class AddBook extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(90, Short.MAX_VALUE)
+                        .addComponent(cancelButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(isbnLabel)
-                                            .addComponent(titleLabel))
-                                        .addGap(22, 22, 22))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(authorLabel)
-                                        .addGap(12, 12, 12))
-                                    .addComponent(publisherLabel))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(priceLabel)
-                                    .addGap(22, 22, 22)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(coverLabel)
-                                .addGap(17, 17, 17)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(29, 29, 29))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(titleLabel)
+                                            .addGap(24, 24, 24))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(authorLabel)
+                                            .addGap(12, 12, 12))
+                                        .addComponent(publisherLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(priceLabel)
+                                        .addGap(22, 22, 22)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(isbnTextField)
                             .addComponent(titleTextField)
                             .addComponent(authorTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(publisherTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(priceSpinner)
-                            .addComponent(fileChooserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(cancelButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(fileChooserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -151,10 +145,6 @@ public class AddBook extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLabel)
                     .addComponent(titleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(isbnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(isbnLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(authorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +165,7 @@ public class AddBook extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(cancelButton))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,20 +180,19 @@ public class AddBook extends javax.swing.JInternalFrame {
         String author = authorTextField.getText();
         String bookTitle = titleTextField.getText();
         String publisher = publisherTextField.getText();
-        String isbn = isbnTextField.getText();
         String price = priceSpinner.getValue().toString();
-        boolean areFilled = !author.isBlank() && !bookTitle.isBlank() && !publisher.isBlank() && !isbn.isBlank() && !price.isBlank();
+        boolean areFilled = !author.isBlank() && !bookTitle.isBlank() && !publisher.isBlank() && !price.isBlank();
         if (areFilled) {
             if (image == null) {
-                book = new Book(bookTitle, author, publisher, isbn, Float.parseFloat(price));
+                book = new Book(bookTitle, author, publisher, Integer.parseInt(price));
             } else {
-                book = new Book(bookTitle, author, publisher, isbn, Float.parseFloat(price), image);
+                book = new Book(bookTitle, author, publisher, Integer.parseInt(price), image);
             }
             PreviewBook previewBook = new PreviewBook(book);
             previewBook.pack();
             previewBook.setVisible(true);
             previewBook.setSize(getParent().getWidth(), getParent().getHeight());
-            previewBook.setLocation(0,0);
+            previewBook.setLocation(0, 0);
             int height = (int) Math.round(previewBook.getHeight() * 0.8);
             int width = (int) Math.round(height * 3 / 4.0);
             previewBook.setCover(width, height);
@@ -236,8 +225,6 @@ public class AddBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel coverLabel;
     private javax.swing.JButton fileChooserButton;
-    private javax.swing.JLabel isbnLabel;
-    private javax.swing.JTextField isbnTextField;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JSpinner priceSpinner;
     private javax.swing.JLabel publisherLabel;

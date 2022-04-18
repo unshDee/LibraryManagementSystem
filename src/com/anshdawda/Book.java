@@ -14,20 +14,21 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author bhavya-gohil
+ * @author Bhavya Gohil, Ansh Dawda
  */
 public class Book {
-    private static final AtomicInteger count = new AtomicInteger(0); 
-    private int bid;
-    private boolean isAvailable;
+//    private static final AtomicInteger count = new AtomicInteger(0); 
+    private int bookId;
+//    private boolean isAvailable;
     private String title;
     private String author;
     private String publisher;
     private int price;
     private String borrowedBy;
     private File cover;
-    private boolean isIssued;
-    private boolean isReturned;
+//    private boolean isIssued;
+//    private boolean isReturned;
+    private boolean isAvailable;
     
     private static Book book;
     
@@ -61,10 +62,10 @@ public class Book {
         this.publisher = publisher;
         this.price = price;
         this.cover = cover;
-        this.bid = count.incrementAndGet();  
+//        this.bid = count.incrementAndGet();  
         this.isAvailable = true;
-        this.isIssued = false;
-        this.isReturned = false;
+//        this.isIssued = false;
+//        this.isReturned = false;
     }
     
     public void setBook(String title, String author, String publisher, int price, File cover){
@@ -149,25 +150,27 @@ public class Book {
         this.borrowedBy = borrowedBy;
     }
     
-    public boolean getAvailability(){
+    public boolean getIsAvailable(){
         return this.isAvailable;
     }
     
-    public void setIssued(){
-        this.isIssued = true;
-        this.isReturned = false;
-    } 
+//    public void setIssued(){
+//        this.isIssued = true;
+//        this.isReturned = false;
+//    } 
+//    
+//    public void setReturned(){
+//        this.isReturned = true;
+//        this.isIssued = false;
+//    }
     
-    public void setReturned(){
-        this.isReturned = true;
-        this.isIssued = false;
-    }
-    
-    public void setAvailability(){
-        if(this.isIssued && this.isAvailable){
-            this.isAvailable = false;
-        }else if(this.isReturned && !this.isAvailable){
-            this.isAvailable = true;
-        }
+    public void setIsAvailable(boolean isAvailable){
+        this.isAvailable = isAvailable;
+//        if(this.isIssued && this.isAvailable){
+//            this.isAvailable = false;
+//        }else if(this.isReturned && !this.isAvailable){
+//            this.isAvailable = true;
+//        }
+        
     }
 }

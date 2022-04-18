@@ -98,4 +98,7 @@ VALUES
     )
   );
 SHOW VARIABLES LIKE 'secure_file_priv';
-SELECT LOAD_FILE('C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\defaultAvatar.png');
+SELECT
+  LOAD_FILE(
+    'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\defaultAvatar.png'
+  );
