@@ -1,4 +1,10 @@
-# LibraryManagementSystem
+# Library Management System
+
+Made by:
+- Aditya Singh
+- Ansh Dawda
+- Bhavya Gohil
+- Rohit Vempa
 
 Advanced Java Programming group task for lab
 
